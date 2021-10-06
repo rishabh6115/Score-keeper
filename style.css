@@ -6,7 +6,15 @@
 }
 
 .player {
-    margin: 20px 0;
+    box-sizing: border-box;
+    padding: 9px 26px;
+    margin: 18px;
+    border-radius: 12px;
+}
+
+.player:hover {
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 body {
