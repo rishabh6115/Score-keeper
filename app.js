@@ -20,6 +20,10 @@ fbutton.addEventListener('click', function(e) {
         document.body.append(h1)
         score1.style.color = 'green'
         score2.style.color = 'red'
+        fbutton.style.backgroundColor = 'green'
+        sbutton.style.backgroundColor = 'red'
+        fbutton.style.color = 'white'
+        sbutton.style.color = 'white'
         fbutton.disabled = true
         sbutton.disabled = true
     }
@@ -34,6 +38,10 @@ sbutton.addEventListener('click', function(e) {
         document.body.append(h1)
         score1.style.color = 'red'
         score2.style.color = 'green'
+        fbutton.style.backgroundColor = 'red'
+        sbutton.style.backgroundColor = 'green'
+        fbutton.style.color = 'white'
+        sbutton.style.color = 'white'
         fbutton.disabled = true
         sbutton.disabled = true
     }
@@ -47,7 +55,12 @@ reset.addEventListener('click', function(e) {
     h1.remove()
     score1.style.color = 'black'
     score2.style.color = 'black'
+    fbutton.style.backgroundColor = 'white'
+    sbutton.style.backgroundColor = 'white'
+    fbutton.style.color = 'black'
+    sbutton.style.color = 'black'
     fbutton.disabled = false
     sbutton.disabled = false
+    dropdown.value = 1
 
 })
