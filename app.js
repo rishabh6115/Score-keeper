@@ -5,6 +5,36 @@ const fbutton = document.querySelector('.one')
 const sbutton = document.querySelector('.two')
 const reset = document.querySelector('.reset')
 const h1 = document.createElement('h1')
+const hr = document.querySelector('hr')
+const container = document.querySelector('.container')
+
+
+const resetPlayer = document.createElement('button')
+resetPlayer.classList.add('player')
+container.append(resetPlayer)
+resetPlayer.innerText = 'Reset Player'
+
+
+
+const firstName = document.createElement('input')
+firstName.type = 'text';
+firstName.placeholder = 'Enter First player Name'
+firstName.classList.add('player')
+
+
+firstName.addEventListener('input', function() {
+    fbutton.innerText = `+1 ${firstName.value}`
+})
+const secondName = document.createElement('input')
+secondName.type = 'text';
+secondName.placeholder = 'Enter Second Player Name'
+secondName.classList.add('player')
+secondName.addEventListener('input', function() {
+    sbutton.innerText = `+1 ${secondName.value}`
+})
+hr.appendChild(firstName)
+hr.appendChild(secondName)
+
 
 let totalpoint = dropdown.value;
 dropdown.addEventListener('change', function(e) {
@@ -16,12 +46,12 @@ fbutton.addEventListener('click', function(e) {
     score1.innerText = `${fcount}`
     if (fcount === parseInt(dropdown.value)) {
 
-        h1.innerText = `Congratulations player 1 won`
+        h1.innerText = `Congratulations ${firstName.value} won`
         document.body.append(h1)
-        score1.style.color = 'green'
-        score2.style.color = 'red'
-        fbutton.style.backgroundColor = 'green'
-        sbutton.style.backgroundColor = 'red'
+        score1.style.color = '#1cb199'
+        score2.style.color = '#cb5e2edb'
+        fbutton.style.backgroundColor = '#1cb199'
+        sbutton.style.backgroundColor = '#cb5e2edb'
         fbutton.style.color = 'white'
         sbutton.style.color = 'white'
         fbutton.disabled = true
@@ -34,18 +64,19 @@ sbutton.addEventListener('click', function(e) {
     score2.innerText = `${scount}`
     if (scount === parseInt(dropdown.value)) {
 
-        h1.innerText = `Congratulations player 2 won`
+        h1.innerText = `Congratulations ${secondName.value} won`
         document.body.append(h1)
         score1.style.color = 'red'
         score2.style.color = 'green'
-        fbutton.style.backgroundColor = 'red'
-        sbutton.style.backgroundColor = 'green'
+        fbutton.style.backgroundColor = '#cb5e2edb'
+        sbutton.style.backgroundColor = '#1cb199'
         fbutton.style.color = 'white'
         sbutton.style.color = 'white'
         fbutton.disabled = true
         sbutton.disabled = true
-    }
 
+
+    }
 })
 reset.addEventListener('click', function(e) {
     score1.innerText = '0'
@@ -61,6 +92,11 @@ reset.addEventListener('click', function(e) {
     sbutton.style.color = 'black'
     fbutton.disabled = false
     sbutton.disabled = false
-    dropdown.value = 1
+})
 
+resetPlayer.addEventListener('click', function() {
+    firstName.value = '';
+    secondName.value = '';
+    fbutton.innerText = '+1 Player One'
+    sbutton.innerText = '+1 Player Two'
 })
